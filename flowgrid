@@ -1,0 +1,29 @@
+
+---
+
+### 🐍 `flowgrid/stream_ingestor.py`
+```python
+import sys
+from pattern_memory import PatternMemory
+from anomaly_learner import detect_deviation
+from feedback_loop import retrain
+
+def ingest(path):
+    memory = PatternMemory()
+
+    with open(path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            if detect_deviation(memory, line):
+                print(f"[Anomaly] {line}")
+            memory.learn(line)
+
+    retrain(memory)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python stream_ingestor.py <file>")
+    else:
+        ingest(sys.argv[1])
