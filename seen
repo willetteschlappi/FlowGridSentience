@@ -1,0 +1,33 @@
+from collections import defaultdict
+
+class PatternMemory:
+    def __init__(self):
+        self.patterns = defaultdict(int)
+
+    def learn(self, event: str):
+        self.patterns[event] += 1
+
+    def seen(self, event: str) -> bool:
+        return self.patterns[event] > 2
+from collections import defaultdict
+
+class PatternMemory:
+    def __init__(self):
+        self.patterns = defaultdict(int)
+
+    def learn(self, event: str):
+        self.patterns[event] += 1
+
+    def seen(self, event: str) -> bool:
+        return self.patterns[event] > 2
+from collections import defaultdict
+
+class PatternMemory:
+    def __init__(self):
+        self.patterns = defaultdict(int)
+
+    def learn(self, event: str):
+        self.patterns[event] += 1
+
+    def seen(self, event: str) -> bool:
+        return self.patterns[event] > 2
